@@ -1,5 +1,8 @@
 version: "3"
 
+networks:
+  wattx-topcoins-main-network:
+
 services:
   rank_app:
     build: ./ranking_app
@@ -7,18 +10,27 @@ services:
     restart: always
     ports:
       - "5001:5001"
-    container_name: rank_app_con
+    container_name: rank-app-con
+    networks:
+      - wattx-topcoins-main-network
+
+
   price_app:
     build: ./pricing_app
     image: price_app
     restart: always
     ports:
       - "5002:5002"
-    container_name: price_app_con
+    container_name: price-app-con
+    networks:
+      - wattx-topcoins-main-network
+
   top_coins_app:
     build: ./topcoins_app
     image: topcoins_app
     restart: always
     ports:
       - "5000:5000"
-    container_name: top_coins_app_con
+    container_name: top-coins-app-con
+    networks:
+      - wattx-topcoins-main-network

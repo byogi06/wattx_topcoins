@@ -38,8 +38,11 @@ Few things left out or or what you might do differently if you were to spend add
   >docker network create coins-network
 3. Add all the three containers names to the network.
   >docker network connect coins-network rank_app_con
+  
   >docker network connect coins-network price_app_con
+  
   >docker network connect coins-network top_coins_app_con
+  
 4. Run the top coin service using curl or browser
    Browser : http://localhost:5000/
             if you want to add the limit http://localhost:5000/?limit=20

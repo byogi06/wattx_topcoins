@@ -73,6 +73,7 @@ class TopCoins(Resource):
         rank_df=pd.json_normalize(ranks_obj)
         price_df =pd.json_normalize(price_obj)
         top_coins_merge_df = pd.merge(rank_df, price_df, on="Symbol", how="left")
+        top_coins_merge_df['Price USD']=top_coins_merge_df['Price USD'].fillna("Not found by coinmarketcap api result")
         if limit:
             top_coins_merge_df = top_coins_merge_df[top_coins_merge_df.Rank <= int(limit)]
         top_coins_json=top_coins_merge_df.to_json(orient="records", indent=3)

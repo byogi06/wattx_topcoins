@@ -44,9 +44,13 @@ Few things left out or or what you might do differently if you were to spend add
   >docker network connect coins-network top_coins_app_con
   
 4. Run the top coin service using curl or browser
+   
    Browser : http://localhost:5000/
-            if you want to add the limit http://localhost:5000/?limit=20
+   
+   if you want to add the limit http://localhost:5000/?limit=20
+   
    You can use curl command as well. 
+   
    **Special Note **: As Top coins service will only fetch top 100 coins because cryptocompare.com vendor api itself has limit of top 100 coins hence even if you pass limit more than 100 it will only top 100 coins.
    
  
